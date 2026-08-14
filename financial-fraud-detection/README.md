@@ -21,9 +21,8 @@
 13. [Testing & CI](#testing--ci)
 14. [Key Findings](#key-findings)
 15. [Limitations](#limitations)
-16. [Production Enhancements](#production-enhancements)
-17. [Tech Stack](#tech-stack)
-18. [Reproducibility](#reproducibility)
+16. [Tech Stack](#tech-stack)
+17. [Reproducibility](#reproducibility)
 
 ---
 
@@ -49,9 +48,6 @@ The pipeline includes:
 - Jupyter notebook workflow
 - Pytest unit tests
 - GitHub Actions CI
-- Saved model using Joblib
-
-The project is designed as a portfolio/learning project and is **not a production banking fraud decision system**.
 
 ---
 
@@ -153,23 +149,6 @@ financial-fraud-detection/
 - Python 3.10+
 - pip
 - Git
-- Windows PowerShell or Command Prompt, macOS Terminal, or Linux shell
-
-### Create a virtual environment
-
-Windows:
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-```
-
-macOS/Linux:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
 
 ### Install dependencies
 
@@ -466,31 +445,6 @@ contains SQL analysis for:
 - Fraud by amount band
 - Fraud by transaction hour
 
-Example DuckDB setup:
-
-```python
-import duckdb
-
-con = duckdb.connect()
-
-con.execute("""
-    CREATE TABLE creditcard AS
-    SELECT *
-    FROM read_csv_auto('data/raw/creditcard.csv')
-""")
-
-result = con.execute("""
-    SELECT
-        Class,
-        COUNT(*) AS transaction_count
-    FROM creditcard
-    GROUP BY Class
-    ORDER BY Class
-""").df()
-
-print(result)
-```
-
 ---
 
 ## Jupyter Notebook
@@ -579,32 +533,6 @@ The workflow automatically runs the test suite when changes are pushed to GitHub
 
 ---
 
-## Production Enhancements
-
-A production financial fraud platform could extend this project with:
-
-- Kafka or another real-time event-streaming platform
-- Real-time feature engineering
-- Feature store
-- Probability calibration
-- Cost-sensitive threshold optimization
-- SHAP-based model explainability
-- Data-quality monitoring
-- Model drift monitoring
-- Feature drift monitoring
-- MLflow/model registry
-- Docker and Kubernetes deployment
-- Cloud-based inference
-- Automated retraining
-- Audit logging
-- Case-management integration
-- Fraud analyst feedback loop
-- Champion/challenger model deployment
-- Time-based backtesting
-- Model governance and regulatory documentation
-
----
-
 ## Tech Stack
 
 | Layer | Technology |
@@ -685,13 +613,3 @@ F1       : 0.9081
 ```
 
 ---
-
-## Portfolio / Resume Summary
-
-**Financial Transaction Fraud Detection & Risk Analytics** — Built an end-to-end Python machine learning pipeline using Pandas, NumPy and Scikit-learn on a 5,493-record transaction dataset; engineered time and transaction-amount features, trained a class-weighted Random Forest, evaluated performance using ROC-AUC, PR-AUC, precision, recall and F1, persisted the model with Joblib, generated transaction-level risk scores, and implemented SQL analytics, automated testing and GitHub Actions CI.
-
----
-
-## Disclaimer
-
-This project is intended for **educational, portfolio, and demonstration purposes**. It is not a production fraud detection system and should not be used to make financial, credit, customer-account, or other high-impact decisions without appropriate validation, governance, security, monitoring, and regulatory review.
