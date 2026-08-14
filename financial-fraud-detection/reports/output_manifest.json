@@ -1,0 +1,71 @@
+{
+  "dataset_records": 5493,
+  "fraud_records": 492,
+  "legitimate_records": 5001,
+  "fraud_rate_percent": 8.9569,
+  "test_metrics": {
+    "roc_auc": 0.9847703317091072,
+    "pr_auc": 0.9456704225119881,
+    "precision": 0.9655172413793104,
+    "recall": 0.8571428571428571,
+    "f1": 0.9081081081081082,
+    "confusion_matrix": [
+      [
+        998,
+        3
+      ],
+      [
+        14,
+        84
+      ]
+    ]
+  },
+  "full_dataset_metrics": {
+    "roc_auc": 0.9978268573927491,
+    "pr_auc": 0.9916847658139756,
+    "confusion_matrix": [
+      [
+        4996,
+        5
+      ],
+      [
+        15,
+        477
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.9970065855118739,
+        "recall": 0.999000199960008,
+        "f1-score": 0.9980023971234518,
+        "support": 5001.0
+      },
+      "1": {
+        "precision": 0.9896265560165975,
+        "recall": 0.9695121951219512,
+        "f1-score": 0.9794661190965093,
+        "support": 492.0
+      },
+      "accuracy": 0.9963590023666484,
+      "macro avg": {
+        "precision": 0.9933165707642357,
+        "recall": 0.9842561975409796,
+        "f1-score": 0.9887342581099805,
+        "support": 5493.0
+      },
+      "weighted avg": {
+        "precision": 0.9963455670316854,
+        "recall": 0.9963590023666484,
+        "f1-score": 0.9963421297305416,
+        "support": 5493.0
+      }
+    }
+  },
+  "generated_files": [
+    "models/fraud_random_forest.joblib",
+    "reports/metrics_runtime.json",
+    "reports/evaluation.json",
+    "reports/fraud_detection_results.xlsx",
+    "data/processed/fraud_predictions.csv"
+  ]
+}
